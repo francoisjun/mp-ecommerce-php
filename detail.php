@@ -44,10 +44,11 @@ $payer = new MercadoPago\Payer();
   );
 $preference->payer = $payer;
 
-$preference->payment_methods = {
-    excluded_payment_methods = ['amex'],
-    installments = 6;
-}
+$payment = new MercadoPago\PaymentMethods();
+$payment->excluded_payment_methods = array('amex');
+$payment->installments = 6;
+
+$preference->payment_methods = $payment;
 
 $preference->save();
 ?>
