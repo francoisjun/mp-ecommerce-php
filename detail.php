@@ -3,6 +3,7 @@
 require __DIR__ .  '/vendor/autoload.php';
 // Adicione as credenciais
 MercadoPago\SDK::setAccessToken('APP_USR-334491433003961-030821-12d7475807d694b645722c1946d5ce5a-725736327');
+MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
 ?>
 
 <?php
@@ -70,15 +71,14 @@ $preference->save();
     crossorigin="anonymous"></script>
     
     // SDK MercadoPago.js V2
+    <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
     <script src="https://sdk.mercadopago.com/js/v2"></script>
 
     <script>
-    // Adicione as credenciais do SDK
     const mp = new MercadoPago('APP_USR-6096a634-0b35-452c-94c9-a18adb8ffb15', {
             locale: 'pt-BR'
     });
 
-    // Inicialize o checkout
     const checkout =  mp.checkout({
         preference: {
             id: '<?php echo $preference->id; ?>'
