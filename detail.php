@@ -202,7 +202,7 @@ $preference->save();
                                     </div>
                                     <!-- <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button> -->
                                     
-                                    <div class="mp-container"></div>
+                                    <div class="mp-container"><a href="<?php echo $preference->init_point; ?>">Pagar com Mercado Pago</a></div>
                                 </div>
                             </div>
                         </div>
