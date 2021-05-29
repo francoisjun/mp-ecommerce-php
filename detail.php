@@ -8,10 +8,10 @@ MercadoPago\SDK::setAccessToken('APP_USR-334491433003961-030821-12d7475807d694b6
 <?php
 // Cria um objeto de preferência
 $preference = new MercadoPago\Preference();
+$preference->id = "1234";
 
 // Cria um item na preferência
 $item = new MercadoPago\Item();
-$item->id = "1234";
 $item->title = $_POST['title'];
 $item->description = "Celular de Tienda e-commerce";
 $item->picture_url = "https://francoisjun-mp-ecommerce-php.herokuapp.com/" . $_POST['img'];
@@ -26,6 +26,7 @@ $preference->back_urls = array(
 );
 
 $preference->auto_return = "approved"; 
+$preference->external_reference = "francoisjun84@gmail.com";
 $preference->save();
 
 $payer = new MercadoPago\Payer();
@@ -76,10 +77,10 @@ $payer = new MercadoPago\Payer();
     // Inicialize o checkout
     mp.checkout({
         preference: {
-            id: '<?php echo $preference->id; ?>'
+            id: '1234'
         },
         render: {
-                container: '.cho-container', // Indica onde o botão de pagamento será exibido
+                container: '.mp-container', // Indica onde o botão de pagamento será exibido
                 label: 'Pague a compra', // Muda o texto do botão de pagamento (opcional)
         }
     });
@@ -205,7 +206,7 @@ $payer = new MercadoPago\Payer();
                                     </div>
                                     <!-- <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button> -->
                                     
-                                    <div class="cho-container"></div>
+                                    <div class="mp-container"></div>
                                 </div>
                             </div>
                         </div>
