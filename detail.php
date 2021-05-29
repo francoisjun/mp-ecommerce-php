@@ -2,7 +2,7 @@
 // SDK do Mercado Pago
 require __DIR__ .  '/vendor/autoload.php';
 // Adicione as credenciais
-MercadoPago\SDK::setAccessToken('APP_USR-334491433003961-030821-12d7475807d694b645722c1946 d5ce5a-725736327');
+MercadoPago\SDK::setAccessToken('APP_USR-334491433003961-030821-12d7475807d694b645722c1946d5ce5a-725736327');
 ?>
 
 <?php
