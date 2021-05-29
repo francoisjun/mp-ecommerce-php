@@ -71,7 +71,7 @@ $preference->save();
     });
 
     // Inicialize o checkout
-    mp.checkout({
+    const checkout =  mp.checkout({
         preference: {
             id: '<?php echo $preference->id; ?>'
         }
