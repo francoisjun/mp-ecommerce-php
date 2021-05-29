@@ -28,7 +28,6 @@ $preference->back_urls = array(
 $preference->auto_return = "approved"; 
 $preference->external_reference = "francoisjun84@gmail.com";
 
-
 $payer = new MercadoPago\Payer();
   $payer->name = "Lalo";
   $payer->surname = "Landa";
@@ -37,12 +36,7 @@ $payer = new MercadoPago\Payer();
     "area_code" => "55",
     "number" => "98529-8743"
   );
-    
-  $payer->identification = array(
-    "type" => "CPF",
-    "number" => "19119119100"
-  );
-    
+     
   $payer->address = array(
     "street_name" => "Insurgentes Sur",
     "street_number" => 1612,
@@ -50,8 +44,6 @@ $payer = new MercadoPago\Payer();
   );
 $preference->payer = $payer;
 $preference->save();
-
-var_dump($preference);
 ?>
 
 
@@ -81,7 +73,7 @@ var_dump($preference);
     // Inicialize o checkout
     mp.checkout({
         preference: {
-            id: '725736327'
+            id: '<?php echo $preference->id; ?>'
         },
         render: {
                 container: '.mp-container', // Indica onde o botão de pagamento será exibido
