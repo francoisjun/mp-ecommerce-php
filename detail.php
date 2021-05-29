@@ -43,6 +43,12 @@ $payer = new MercadoPago\Payer();
     "zip_code" => "78134190"
   );
 $preference->payer = $payer;
+
+$preference->payment_methods = {
+    excluded_payment_methods = ['amex'],
+    installments = 6;
+}
+
 $preference->save();
 ?>
 
