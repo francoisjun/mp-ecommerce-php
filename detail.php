@@ -18,7 +18,35 @@ $item->picture_url = "https://francoisjun-mp-ecommerce-php.herokuapp.com/" . $_P
 $item->quantity = 1;
 $item->unit_price = $_POST['price'];
 $preference->items = array($item);
+
+$preference->back_urls = array(
+    "success" => "https://francoisjun-mp-ecommerce-php.herokuapp.com/feedback",
+    "failure" => "https://francoisjun-mp-ecommerce-php.herokuapp.com/feedback", 
+    "pending" => "https://francoisjun-mp-ecommerce-php.herokuapp.com/feedback"
+);
+
+$preference->auto_return = "approved"; 
 $preference->save();
+
+$payer = new MercadoPago\Payer();
+  $payer->name = "Lalo";
+  $payer->surname = "Landa";
+  $payer->email = "test_user_92801501@testuser.com";
+    $payer->phone = array(
+    "area_code" => "55",
+    "number" => "98529-8743"
+  );
+    
+  $payer->identification = array(
+    "type" => "CPF",
+    "number" => "19119119100"
+  );
+    
+  $payer->address = array(
+    "street_name" => "Insurgentes Sur",
+    "street_number" => 1612,
+    "zip_code" => "78134190"
+  );
 ?>
 
 
@@ -48,7 +76,7 @@ $preference->save();
     // Inicialize o checkout
     mp.checkout({
         preference: {
-            id: '1234'
+            id: '<?php echo $preference->id; ?>'
         },
         render: {
                 container: '.cho-container', // Indica onde o botão de pagamento será exibido
@@ -176,7 +204,7 @@ $preference->save();
                                         </h3>
                                     </div>
                                     <!-- <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button> -->
-                                    <a href="<?php echo $preference->init_point; ?>">Pagar com Mercado Pago</a>
+                                    
                                     <div class="cho-container"></div>
                                 </div>
                             </div>
