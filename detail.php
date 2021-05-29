@@ -27,7 +27,7 @@ $preference->back_urls = array(
 
 $preference->auto_return = "approved"; 
 $preference->external_reference = "francoisjun84@gmail.com";
-$preference->save();
+
 
 $payer = new MercadoPago\Payer();
   $payer->name = "Lalo";
@@ -48,6 +48,8 @@ $payer = new MercadoPago\Payer();
     "street_number" => 1612,
     "zip_code" => "78134190"
   );
+$preference->payer = $payer;
+$preference->save();
 ?>
 
 
