@@ -1,3 +1,27 @@
+<?php
+// SDK do Mercado Pago
+require __DIR__ .  '/vendor/autoload.php';
+// Adicione as credenciais
+MercadoPago\SDK::setAccessToken('APP_USR-334491433003961-030821-12d7475807d694b645722c1946 d5ce5a-725736327');
+?>
+
+<?php
+// Cria um objeto de preferência
+$preference = new MercadoPago\Preference();
+
+// Cria um item na preferência
+$item = new MercadoPago\Item();
+$item->id = "1234";
+$item->title = $_POST['title'];
+$item->description = "Celular de Tienda e-commerce";
+$item->picture_url: "https://francoisjun-mp-ecommerce-php.herokuapp.com/" . $_POST['img'],
+$item->quantity = 1;
+$item->unit_price = $_POST['price'];
+$preference->items = array($item);
+$preference->save();
+?>
+
+
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -11,6 +35,27 @@
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
+    
+    // SDK MercadoPago.js V2
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
+    <script>
+    // Adicione as credenciais do SDK
+    const mp = new MercadoPago('APP_USR-6096a634-0b35-452c-94c9-a18adb8ffb15', {
+            locale: 'pt-BR'
+    });
+
+    // Inicialize o checkout
+    mp.checkout({
+        preference: {
+            id: '1234'
+        },
+        render: {
+                container: '.cho-container', // Indica onde o botão de pagamento será exibido
+                label: 'Pague a compra', // Muda o texto do botão de pagamento (opcional)
+        }
+    });
+    </script>
 
     <link rel="stylesheet" href="./assets/category-landing.css" media="screen, print">
 
@@ -130,7 +175,8 @@
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
+                                    <!-- <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button> -->
+                                    <div class=".cho-container"></div>
                                 </div>
                             </div>
                         </div>

@@ -1,5 +1,8 @@
 {
-    "name": "mp-ecommerce-php",
+    "name": "francoisjr/mp-ecommerce-php",
     "type": "project",
-    "require": {}
+    "description": "Integração com o Mercado Pago Pro",
+    "require": {
+        "mercadopago/dx-php": "^2.3"
+    }
 }
