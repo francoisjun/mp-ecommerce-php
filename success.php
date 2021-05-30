@@ -1,13 +1,23 @@
 <?php
+/*
+collection_id=15115827744
+collection_status=approved
+payment_id=15115827744
+status=approved
+external_reference=francoisjun84@gmail.com
+payment_type=credit_card
+merchant_order_id=2739333562
+preference_id=725736327-e26913fb-39a1-40bc-a2c7-2f5a2dd282ca
+site_id=MLB
+processing_mode=aggregator
+merchant_account_id=null
+*/
 
-$collection = $_POST["collection_id"];
-//collection_status=approved
-$external = $_POST["external_reference"];
-$payment = $_POST["payment_type"];
-$preference = $_POST["preference_id"];
-//site_id=[ SITE_ID]
-// processing_mode=aggregator
-// merchant_account_id=null
+$collection = $_GET["collection_id"];
+$external = $_GET["external_reference"];
+$payment_type = $_GET["payment_type"];
+$payment_id = $_GET["payment_id"];
+$preference = $_GET["preference_id"];
 
 ?>
 
@@ -91,10 +101,11 @@ $preference = $_POST["preference_id"];
                             <div style="text-align: center; margin: 100px 0;">
                             <h2>O pagamento foi realizado com sucesso!</h2>
                             <h3>Dados do pagamento:</h3>
-                            <p>payment_method_id: <?php echo $payment; ?></p>
-                            <p>external_reference: <?php echo $external; ?></p>
+                            <p>payment_type: <?php echo $payment_type; ?></p>
+                            <p>payment_id: <?php echo $payment_id; ?></p>
                             <p>collection_id: <?php echo $collection; ?></p>
                             <p>preference_id: <?php echo $preference; ?></p>
+                            <p>external_reference: <?php echo $external; ?></p>
                         </div>
                         </div>
                     </div>
