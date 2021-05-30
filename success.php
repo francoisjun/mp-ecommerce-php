@@ -4,7 +4,7 @@ $collection = $_POST["collection_id"];
 //collection_status=approved
 $external = $_POST["external_reference"];
 $payment = $_POST["payment_type"];
-//preference_id=[PREFERENCE_ID]
+$preference = $_POST["preference_id"];
 //site_id=[ SITE_ID]
 // processing_mode=aggregator
 // merchant_account_id=null
@@ -94,6 +94,7 @@ $payment = $_POST["payment_type"];
                             <p>payment_method_id: <?php echo $payment; ?></p>
                             <p>external_reference: <?php echo $external; ?></p>
                             <p>collection_id: <?php echo $collection; ?></p>
+                            <p>preference_id: <?php echo $preference; ?></p>
                         </div>
                         </div>
                     </div>
