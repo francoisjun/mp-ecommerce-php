@@ -48,7 +48,7 @@ $preference->payment_methods = array(
     ),
     "installments" => 6
 );
-$preference->notification_url = $site . "hook.php";
+$preference->notification_url = "https://webhook.site/a6940fa9-401e-45c9-9c06-4998a069587f";//$site . "hook.php";
 $preference->save();
 ?>
 
